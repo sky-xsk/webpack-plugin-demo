@@ -1,7 +1,11 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HelloWorldPlugin = require('./plugin/hello-world')
 module.exports = {
   mode: 'development',
+  // 插件
+  plugins: [new HelloWorldPlugin({ options: true })],
+
   entry: {
     index: './src/index.js',
     // index: {
