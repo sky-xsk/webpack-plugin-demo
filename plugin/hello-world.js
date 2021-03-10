@@ -29,8 +29,9 @@
 class HelloWorldPlugin {
   apply(compiler) {
     compiler.hooks.done.tap('Hello World Plugin', (
-      stats /* stats is passed as an argument when done hook is tapped.  */
+      stats
     ) => {
+      console.log(stats, 'stats')
       console.log('Hello World!');
     });
   }
