@@ -31,11 +31,20 @@ module.exports = {
     clean: true, // 清空dist文件夹,
     publicPath: '/',
   },
-  // optimization: {
-  //   // runtimeChunk: 'single',
-  //   // SplitChunksPlugin 插件可以将公共的依赖模块提取到已有的入口 chunk 中，或者提取到一个新生成的 chunk。
-  //   splitChunks: {
-  //     chunks: 'all',
-  //   },
-  // },
+  optimization: {
+    runtimeChunk: 'single',
+    // SplitChunksPlugin 插件可以将公共的依赖模块提取到已有的入口 chunk 中，或者提取到一个新生成的 chunk。
+    // splitChunks: {
+    //   chunks: 'all',
+    // },
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
 }
